@@ -1,0 +1,36 @@
+
+* C:\Users\chinm\Desktop\try\sr_a.cir
+
+.lib "sky130_fd_pr/models/sky130.lib.spice " tt    
+
+xM3  Net-_M1-Pad1_ R vdd vdd            sky130_fd_pr__pfet_01v8 w=1    l=0.5     		
+xM4  Q Qbar Net-_M3-Pad1_ Net-_M3-Pad1_ sky130_fd_pr__pfet_01v8 w=1    l=0.5		
+xM1  Q R Net-_M1-Pad3_ Net-_M1-Pad3_    sky130_fd_pr__nfet_01v8 w=0.42 l=0.5		
+xM6  Q Qbar GND GND                     sky130_fd_pr__nfet_01v8 w=0.42 l=0.5		
+xM5  Net-_M3-Pad1_ CLK vdd vdd          sky130_fd_pr__pfet_01v8 w=1    l=0.5		
+xM2  Net-_M1-Pad3_ CLK GND GND          sky130_fd_pr__nfet_01v8 w=0.42 l=0.5		
+xM10  Net-_M10-Pad1_ S vdd vdd          sky130_fd_pr__pfet_01v8 w=1    l=0.5		
+xM9  Qbar Q Net-_M10-Pad1_ Net-_M10-Pad1_  sky130_fd_pr__pfet_01v8 w=1    l=0.5		
+xM11  Qbar S Net-_M11-Pad3_ Net-_M11-Pad3_ sky130_fd_pr__nfet_01v8 w=0.42 l=0.5		
+xM7  Qbar Q GND GND                        sky130_fd_pr__nfet_01v8 w=0.42 l=0.5		
+xM8  Net-_M10-Pad1_ CLK vdd vdd            sky130_fd_pr__pfet_01v8 w=1    l=0.5		
+xM12  Net-_M11-Pad3_ CLK GND GND           sky130_fd_pr__nfet_01v8 w=0.42 l=0.5	
+
+
+Vdd vdd 0 3.3
+Vd0 CLK 0 pulse(0  1.8  0 0 0 5us 10us)
+Vd1 S 0 pulse(0  1.8  0 0 0 5us 10us )
+Vd2 R 0 pulse(0  1.8  5us 0 0 5us 15us)
+
+.tran 0.1us 40us
+
+.control
+run
+
+plot V(R)    
+plot V(S)
+plot V(CLK)
+plot V(Q)
+plot V(Qbar)
+.endc
+.end
