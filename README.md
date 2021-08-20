@@ -1,8 +1,9 @@
 # Circuit-Simulation
 Circuit Simulation using eSim and Sky Water 130nm pdk
+
 Design and Analysis of SR Flipflop:
 
-             SR Flipflop Is designed using Esim and 130 nm Technology. only NMOS and CMOS are used in the designing.
+SR Flipflop Is designed using Esim and 130 nm Technology. only NMOS and CMOS are used in the designing.
 In the waveform S and R are the inputs and also CLK is also given. Based on the input, output Q and Qbar will changes. 
 The input states set and reset 1 is an undesirable or invalid condition and that state must be avoided. 
 If both the S and R inputs are 0 then the output wont change.  it will follow the pervious one.
